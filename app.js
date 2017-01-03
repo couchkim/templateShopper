@@ -56,6 +56,56 @@ function showProduct(product){
         price: product.price.toFixed(2),
     });  
 
+// Can't put let button above because child hasn't been created.
+// can find button in child element (li) that we just created.
+
+    let button = child.querySelector('button');
+    button.addEventListener('click', function (){
+        console.log('clicked on ' + product.title);
+        cart.push(product);
+        showCart();
+        // console.log(cart);
+    });
+
     parent.appendChild(child);
 
+}
+
+function showCart(){
+    let cartList = document.querySelector('#cart ul');
+    cartList.innerHTML = '';
+
+// clear all items    // 
+    
+    for (let i = 0; i < cart.length; i ++){
+        showCartItem(cart[i]);
+    }
+
+    let subtotal = 0;
+    for (i = 0; i < cart.length; i++){
+        subtotal = subtotal + cart[i].price;
+    }
+
+    document.querySelector('#cart-subtotal').textContent = displayPrice(subtotal);
+    document.querySelector('#cart-tax').textContent = displayPrice(subtotal * .1);
+    document.querySelector('#cart-total').textContent = displayPrice(subtotal + (subtotal * .1));
+}
+
+function showCartItem(item){
+    let child = document.createElement('li');
+    let parent = document.querySelector('#cart ul');
+    
+    let template = document.querySelector('#cart-template');
+
+    child.innerHTML = Mustache.render(template.innerHTML, {
+        bookName: item.title,
+        price: item.price.toFixed(2),
+    });   
+
+    parent.appendChild(child);   
+ }
+
+function displayPrice(num){
+    return (Math.round(num*100))/100;
+    
 }

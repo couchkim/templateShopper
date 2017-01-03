@@ -15,6 +15,10 @@
         <button>Add to Cart</button>
     </script>
 
+    <script type="x-mustache-template" id="cart-template">    
+        <p>{{ bookName }}: ${{ price }}</p>   
+    </script>
+
 </head>
 
 <body>
@@ -22,10 +26,16 @@
 
     <main>
         <section id="products">
+            
             <ul></ul>
+            
         </section>
         <section id="cart">
+            <h2>Cart</h2>
             <ul></ul>
+            <p>Subtotal: $<span id = "cart-subtotal">0.00</span></p>
+            <p>Tax: $<span id = "cart-tax">0.00</span></p>
+            <p>Total: $<span id = "cart-total">0.00</span></p>
         </section>
 
     </main>

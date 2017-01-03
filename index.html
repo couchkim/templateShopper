@@ -1,21 +1,36 @@
 <!doctype html>
 
-<html>          
+<html>
 
 <head>
     <title>Template</title>
-    <link rel = "stylesheet" href= "style.css">
-    <script src = "https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
-    <script src = 'app.js'></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+    <script src='app.js'></script>
+
+    <script type="x-mustache-template" id="product-template">    
+        <h2>{{ bookName }}</h2>
+        <p class="author">by {{ authorName }}</p>
+        <p class="price">Starting from ${{ price }}</p>
+        <button>Add to Cart</button>
+    </script>
+
 </head>
 
 <body>
     <h1>Start Here</h1>
 
+    <main>
+        <section id="products">
+            <ul></ul>
+        </section>
+        <section id="cart">
+            <ul></ul>
+        </section>
 
+    </main>
 
 </body>
 
 
 </html>
-

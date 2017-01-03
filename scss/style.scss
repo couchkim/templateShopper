@@ -7,9 +7,42 @@
 
 @import 'header';
 
+
+
 body{
     background-color:lightsalmon;
 }
+
+header{
+    @include grid-row();
+
+    h1{
+        @include grid-column(12);
+        text-align: center;
+    }
+}
+
+ul{
+    list-style: none;
+    padding: 0;
+}
+
+main{
+    @include grid-row();
+
+    #products{
+        @include grid-column(8);
+    }
+
+    #cart{
+        @include grid-column(4);
+    }
+
+    .summary{
+        background-color: white;
+    }
+}
+
 
 button{
     background-color: white;

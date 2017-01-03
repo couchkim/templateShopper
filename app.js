@@ -53,7 +53,7 @@ function showProduct(product){
     child.innerHTML = Mustache.render(template.innerHTML, {
         bookName: product.title,
         authorName: product.author,
-        price: product.price.toFixed(2),
+        price: displayPrice(product.price),
     });  
 
 // Can't put let button above because child hasn't been created.
@@ -99,13 +99,13 @@ function showCartItem(item){
 
     child.innerHTML = Mustache.render(template.innerHTML, {
         bookName: item.title,
-        price: item.price.toFixed(2),
+        price: displayPrice(item.price),
     });   
 
     parent.appendChild(child);   
  }
 
 function displayPrice(num){
-    return (Math.round(num*100))/100;
+    return ((Math.round(num*100))/100).toFixed(2);
     
 }
